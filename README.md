@@ -13,5 +13,7 @@ Built and maintained a small CRM system to help manage customer data, reducing m
 
 Assisted in website updates and landing page development using HTML, CSS, and JavaScript.
 
-Collaborated with IT and operations teams to automate monthly reporting with custom scripts and web tools.
+    Collaborated with IT and operations teams to automate monthly reporting with custom scripts and web tools.
+
+ watched docker on 1/07
 
