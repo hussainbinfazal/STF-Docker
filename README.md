@@ -17,5 +17,5 @@ Assisted in website updates and landing page development using HTML, CSS, and Ja
 
  watched docker on 1/07
  & learned about the prefix sum & bit about the hashing ??
- 
+ 02/07
 
