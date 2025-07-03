@@ -19,5 +19,5 @@ Assisted in website updates and landing page development using HTML, CSS, and Ja
  & learned about the prefix sum & bit about the hashing ??
  02/07 2nd commit
  03/07 1st commit 
- 04/07 1st commit 
+ 04/07 2nd commit 
 
