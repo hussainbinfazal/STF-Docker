@@ -1,0 +1,18 @@
+# Use Node Alpine for smaller image
+FROM node:22-alpine
+
+# Set working directory
+WORKDIR /src
+
+# Install dependencies
+COPY package*.json  ./
+RUN npm install
+
+# Copy source files
+COPY . .
+
+# Expose default Next.js dev port
+EXPOSE 3000
+
+# Start development server
+CMD ["npm", "run", "dev"]
