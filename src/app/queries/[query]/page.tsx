@@ -1,9 +1,12 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 
 const page: React.FC = () => {
+  const [query, setQuery] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
+    createQuery(query, email);
     console.log("Form submitted");
   };
   const createQuery = async (query: string, email: string): Promise<void> => {
