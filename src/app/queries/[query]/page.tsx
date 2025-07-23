@@ -1,9 +1,22 @@
+import axios from "axios";
 import React from "react";
 
 const page: React.FC = () => {
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     console.log("Form submitted");
+  };
+  const createQuery = async (query: string, email: string): Promise<void> => {
+    try {
+      const response = await axios.post("/api/queries", {
+        query,
+        email,
+      });
+      const data = response.data;
+      console.log("Query created successfully:", data);
+    } catch (error) {
+      console.error("Error creating query:", error);
+    }
   };
   return (
     <div>
