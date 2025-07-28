@@ -23,6 +23,7 @@ COPY --from=build /src/next.config.ts ./
 COPY --from=build /src/node_modules ./node_modules
 
 # Expose port
+EXPOSE 3000
 
 # Start app in production mode
 CMD ["npm", "start"]
