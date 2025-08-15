@@ -12,6 +12,7 @@ A full-stack Next.js application with authentication, containerization, and clou
 - **CI/CD** with Jenkins
 - **Nginx** reverse proxy
 - **MongoDB** database integration
+- **Ingress**
 
 ## 📁 Project Structure
 
