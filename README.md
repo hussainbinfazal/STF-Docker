@@ -1,4 +1,4 @@
-# Git Maintain - Next.js Application
+# STF - Next.js Application
 
 A full-stack Next.js application with authentication, containerization, and cloud deployment capabilities.
 
