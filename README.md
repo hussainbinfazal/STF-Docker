@@ -35,7 +35,7 @@ A full-stack Next.js application with authentication, containerization, and clou
 ## 🛠️ Tech Stack
 
 - **Frontend**: Next.js 15, React 19, TypeScript, Tailwind CSS
-- **Authentication**: NextAuth.js
+- **Authentication**: Auth.js V5
 - **Database**: MongoDB
 - **Containerization**: Docker, Docker Compose
 - **Orchestration**: Kubernetes
