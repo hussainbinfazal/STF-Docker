@@ -4,7 +4,7 @@ A full-stack Next.js application with authentication, containerization, and clou
 
 ## 🚀 Features
 
-- **Next.js 15** with TypeScript and Turbopack
+- **Next.js 15** with TypeScript and Turbopack 
 - **Authentication** with Auth.js V5 (Google, GitHub, Credentials)
 - **Containerization** with Docker and Docker Compose
 - **Kubernetes** deployment configurations
