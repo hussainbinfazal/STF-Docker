@@ -1,6 +1,6 @@
 # STF - Next.js Application
 
-A full-stack Next.js application with authentication, containerization, and cloud deployment capabilities.
+A Full-stack Next.js application with authentication, containerization, and cloud deployment capabilities.
 
 ## 🚀 Features
 
@@ -13,6 +13,7 @@ A full-stack Next.js application with authentication, containerization, and clou
 - **Nginx** reverse proxy
 - **MongoDB** database integration
 - **Ingress**
+- **Jenkins**
 
 ## 📁 Project Structure
 
