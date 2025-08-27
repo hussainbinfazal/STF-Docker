@@ -41,7 +41,7 @@ A Full-stack Next.js application with authentication, containerization, and clou
 - **Database**: MongoDB
 - **Containerization**: Docker, Docker Compose
 - **Orchestration**: Kubernetes
-- **Infrastructure**: Terraform (AWS)
+- **Infrastructure**: Terraform (FOR AWS)
 - **CI/CD**: Jenkins
 - **Web Server**: Nginx
 
