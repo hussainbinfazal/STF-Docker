@@ -50,7 +50,6 @@ export default function ResetPasswordPage() {
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">
           <p>
-            Next.js provides a built-in router based on React Server Components.
             You can access it using the <code>useRouter()</code> hook.
           </p>
           <ul className="list-disc list-inside">
