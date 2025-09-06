@@ -22,7 +22,7 @@ export default function RouterInfoPage() {
 
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Current Router State</CardTitle>
+          <CardTitle>Current State</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-sm mb-2">
@@ -50,7 +50,6 @@ export default function RouterInfoPage() {
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">
           <p>
-            Next.js provides a built-in router based on React Server Components.
             You can access it using the <code>useRouter()</code> hook.
           </p>
           <ul className="list-disc list-inside">
