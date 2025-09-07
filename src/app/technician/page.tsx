@@ -52,11 +52,7 @@ export default function RouterInfoPage() {
           <p>
             You can access it using the <code>useRouter()</code> hook.
           </p>
-          <ul className="list-disc list-inside">
-            <li><code>router.push("/path")</code> → Navigate to a new route.</li>
-            <li><code>router.replace("/path")</code> → Navigate without keeping history.</li>
-            <li><code>router.prefetch("/path")</code> → Preload a page in the background.</li>
-          </ul>
+          
         </CardContent>
       </Card>
     </main>
