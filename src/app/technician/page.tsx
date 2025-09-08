@@ -46,7 +46,7 @@ export default function RouterInfoPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>About Next.js Router</CardTitle>
+          <CardTitle>About Next.js</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">
           <p>
