@@ -38,7 +38,8 @@ export default function RouterInfoPage() {
               Go to About
             </Button>
             <Button variant="secondary" onClick={() => router.replace("/dashboard")}>
-              Replace with Dashboard
+              Replace with Dashboard 
+              Within the component
             </Button>
           </div>
         </CardContent>
