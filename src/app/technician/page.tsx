@@ -35,7 +35,7 @@ export default function RouterInfoPage() {
           <div className="flex gap-2">
             <Button onClick={() => router.push("/")}>Go Home</Button>
             <Button variant="outline" onClick={() => router.push("/about")}>
-              Go to About
+              About
             </Button>
             <Button variant="secondary" onClick={() => router.replace("/dashboard")}>
               Replace with Dashboard 
