@@ -168,7 +168,7 @@ const ContentOltFirmware: React.FC = () => {
             rules={[{ required: true, message: 'Please select status!' }]}
           >
             <select>
-              <option value="active">Active</option>
+              <option value="active">Download</option>
               <option value="inactive">Inactive</option>
             </select>
           </Form.Item>
