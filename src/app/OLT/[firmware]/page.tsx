@@ -170,6 +170,7 @@ const ContentOltFirmware: React.FC = () => {
             <select>
               <option value="active">Download</option>
               <option value="inactive">Inactive</option>
+              <option value="inactive">Info</option>
             </select>
           </Form.Item>
         </Form>
