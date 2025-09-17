@@ -614,6 +614,7 @@ const CTA = () => {
                 <div className="text-white font-semibold">Netflix</div>
                 <div className="text-white font-semibold">AWS</div>
                 <div className="text-white font-semibold">Capegmini</div>
+                <div className="text-white font-semibold">XMP India</div>
               </div>
             </div>
           </div>
