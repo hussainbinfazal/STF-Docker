@@ -17,6 +17,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       clientSecret: process.env.AUTH_GITHUB_SECRET,
       
     }),
+    Facebook({
+      clientId: process.env.AUTH_FB_ID,
+      clientSecret: process.env.AUTH_FB_SECRET,
+    })
 
     Credentials({
       credentials: {
