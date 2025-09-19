@@ -21,6 +21,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       clientId: process.env.AUTH_FB_ID,
       clientSecret: process.env.AUTH_FB_SECRET,
     })
+    Discord({
+      clientId: process.env.AUTH_DISCORD_ID,
+      clientSecret: process.env.AUTH_DISCORD_SECRET,
+    })
 
     Credentials({
       credentials: {
