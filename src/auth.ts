@@ -5,6 +5,9 @@ import Credentials from "next-auth/providers/credentials";
 import { connectToDatabase } from "../db";
 import User from "./userModel";
 import { authenticateUser } from "./utils/checkUtils";
+import Reddit from "next-auth/providers/reddit";
+import Discord from "next-auth/providers/discord";
+import Facebook from "next-auth/providers/facebook";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -20,11 +23,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     Facebook({
       clientId: process.env.AUTH_FB_ID,
       clientSecret: process.env.AUTH_FB_SECRET,
-    })
+    }),
     Discord({
       clientId: process.env.AUTH_DISCORD_ID,
       clientSecret: process.env.AUTH_DISCORD_SECRET,
-    })
+    }),
+    Reddit({
+      clientId: process.env.AUTH_DISCORD_ID,
+      clientSecret: process.env.AUTH_DISCORD_SECRET,
+    }),
+    
 
     Credentials({
       credentials: {
@@ -39,7 +47,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,amazon
+  secret: process.env.NEXTAUTH_SECRET,
 
   pages: {
     signIn: "/login",
