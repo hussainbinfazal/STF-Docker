@@ -32,6 +32,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       clientId: process.env.AUTH_DISCORD_ID,
       clientSecret: process.env.AUTH_DISCORD_SECRET,
     }),
+    Linkedin({
+      clientId: process.env.AUTH_lINKEDIN_ID,
+      clientSecret: process.env.AUTH_lINKEDIN_SECRET,
+    }),
     
 
     Credentials({
