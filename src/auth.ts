@@ -29,8 +29,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       clientSecret: process.env.AUTH_DISCORD_SECRET,
     }),
     Reddit({
-      clientId: process.env.AUTH_DISCORD_ID,
-      clientSecret: process.env.AUTH_DISCORD_SECRET,
+      clientId: process.env.AUTH_REDDIT_ID,
+      clientSecret: process.env.AUTH_REDDIT_SECRET,
     }),
     Linkedin({
       clientId: process.env.AUTH_lINKEDIN_ID,

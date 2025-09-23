@@ -122,6 +122,12 @@ AUTH_GOOGLE_ID=your-google-client-id
 AUTH_GOOGLE_SECRET=your-google-client-secret
 AUTH_GITHUB_ID=your-github-client-id
 AUTH_GITHUB_SECRET=your-github-client-secret
+AUTH_REDDIT_ID=your-reddit-client-id
+AUTH_REDDIT_SECRET=your-reddit-client-secret
+AUTH_FB_ID=your-fb-client-id
+AUTH_FB_SECRET=your-fb-client-secret
+AUTH_DISCORD_ID=your-discord-client-id
+AUTH_DISCORD_SECRET=your-discord-client-secret
 MONGODB_URI=mongodb://localhost:27017/gitMaintain
 ```
 
