@@ -2,7 +2,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Typography, Avatar, Grid, Paper } from '@mui/material';
-
+import axios from 'axios';
 // User profile interface
 interface UserProfile {
   id: string;
@@ -19,11 +19,11 @@ const UserProfile: React.FC = () => {
   const [loading, setLoading] = React.useState<boolean>(true);
 
   React.useEffect(() => {
-    // Fetch user profile data
+    // axios user profile data
     const fetchUserProfile = async () => {
       try {
         // TODO: Replace with actual API call
-        const response = await fetch(`/api/users/${userId}`);
+        const response = await axios.get(`/api/users/${userId}`);
         const data = await response.json();
         setUserProfile(data);
       } catch (error) {
