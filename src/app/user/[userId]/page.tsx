@@ -1,7 +1,7 @@
+'use client'
 
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { Box, Typography, Avatar, Grid, Paper } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
 import axios from 'axios';
 // User profile interface
 interface UserProfile {
@@ -13,18 +13,20 @@ interface UserProfile {
   joinDate: string;
 }
 
+
+
 const UserProfile: React.FC = () => {
   const { userId } = useParams<{ userId: string }>();
-  const [userProfile, setUserProfile] = React.useState<UserProfile | null>(null);
-  const [loading, setLoading] = React.useState<boolean>(true);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // axios user profile data
-    const fetchUserProfile = async () => {
+    const fetchUserProfile = async (): Promise<void> => {
       try {
         // TODO: Replace with actual API call
         const response = await axios.get(`/api/users/${userId}`);
-        const data = await response.json();
+        const data = response.data;
         setUserProfile(data);
       } catch (error) {
         console.error('Error fetching user profile:', error);
@@ -37,41 +39,41 @@ const UserProfile: React.FC = () => {
   }, [userId]);
 
   if (loading) {
-    return <Typography>Loading...</Typography>;
+    return <div>Loading...</div>;
   }
 
   if (!userProfile) {
-    return <Typography>User not found</Typography>;
+    return <div>User not found</div>;
   }
 
   return (
-    <Box sx={{ padding: 3 }}>
-      <Paper elevation={3} sx={{ padding: 3 }}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={4} sx={{ textAlign: 'center' }}>
-            <Avatar
+    <div className="p-6">
+      <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="text-center">
+            <img
               src={userProfile.avatar}
               alt={userProfile.name}
-              sx={{ width: 150, height: 150, margin: 'auto' }}
+              className="w-32 h-32 rounded-full mx-auto"
             />
-          </Grid>
-          <Grid item xs={12} md={8}>
-            <Typography variant="h4" gutterBottom>
+          </div>
+          <div className="md:col-span-2">
+            <h1 className="text-3xl font-bold mb-2">
               {userProfile.name}
-            </Typography>
-            <Typography variant="body1" color="textSecondary" gutterBottom>
+            </h1>
+            <p className="text-gray-600 mb-4">
               {userProfile.email}
-            </Typography>
-            <Typography variant="body1" paragraph>
+            </p>
+            <p className="text-gray-800 mb-4">
               {userProfile.bio}
-            </Typography>
-            <Typography variant="caption" color="textSecondary">
+            </p>
+            <p className="text-sm text-gray-500">
               Member since: {new Date(userProfile.joinDate).toLocaleDateString()}
-            </Typography>
-          </Grid>
-        </Grid>
-      </Paper>
-    </Box>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
