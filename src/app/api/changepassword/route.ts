@@ -35,3 +35,18 @@ export async function PUT(req: NextRequest) {
         
     }
 }
+
+export async function DELETE(req: NextRequest) {
+    try {
+        connectDB();
+    const { userID} = await req.json();
+    const user = await User.findByIdAndUpdate(userID, { isActive: false });
+    if (!user) {
+        return NextResponse.json({ message: "User not found" }, { status: 404 });
+    }
+    return NextResponse.json({ message: "User Forgot successfull" }, { status: 200 });
+    } catch (error: any) {
+        return NextResponse.json({ message: error.message }, { status: 500 });
+        
+    }
+}
