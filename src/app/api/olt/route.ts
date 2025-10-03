@@ -1,11 +1,23 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-
-export async function GET(req:NextResponse) {
+export async function GET(req: NextRequest) {
     connectDB()
-    const Firmware = await Firmware.find()
-    if(!Firmware) {
+    const firmware = await FirmwareModel.find()
+    if(!firmware) {
         return NextResponse.json({message: "No Firmware found"}, {status: 404})
     }
-    return NextResponse.json({Firmware}, {status: 200})
+    return NextResponse.json({firmware}, {status: 200})
+}
+
+export async function PUT(req: NextRequest, { params }: { params: { OLTID: string } }) {
+    // connectDB()
+    const { OLTID } = params
+    const firmwareFile = await req.json()
+    const firmware = await Firmware.findById(OLTID)
+    firmware.firmwareFile = firmwareFile
+    if(!firmware) {
+        return NextResponse.json({message: "No Firmware found"}, {status: 404})
+    }
+    
+    return NextResponse.json({OLTID, firmwareFile}, {status: 200})
 }
