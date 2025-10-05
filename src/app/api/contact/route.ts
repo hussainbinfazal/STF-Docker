@@ -12,11 +12,17 @@ export async function GET(req:NextResponse) {
 }
 
 export async function PUT(req:NextResponse) {
-    connectDB()
+    try{
+        connectDB()
     const Firmware = await Firmware.find()
-    
+      
     if(!Firmware) {
         return NextResponse.json({message: "No Firmware found"}, {status: 404})
     }
+    Firmware.fc = req.body
+    await Firmware.save()
     return NextResponse.json({Firmware}, {status: 200})
+    }catch(error){
+        return NextResponse.json({message: "Internal Server Error"}, {status: 500})
+    }
 }
