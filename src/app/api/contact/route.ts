@@ -11,7 +11,7 @@ export async function GET(req:NextResponse) {
     return NextResponse.json({Firmware}, {status: 200})
 }
 
-export async function PUT(req:NextResponse) {
+export async function PUT(req:NextResponse,res:NextResponse) {
     try{
         connectDB()
     const Firmware = await Firmware.find()
