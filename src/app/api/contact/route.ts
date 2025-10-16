@@ -41,7 +41,7 @@ export async function DELETE(req:NextResponse,res:NextResponse) {
     }
     return NextResponse.json({message : "Firmware Deleted Successfully"}, {status: 200})
     }catch(error){
-        return NextResponse.json({message: "Internal Server Error"}, {status: 500})
+        return NextResponse.json({message: "Internal Server Error , Please Try Again"}, {status: 500})
     }
     finally{
         return NextResponse.json({message: "Internal Server Error"}, {status: 500})
