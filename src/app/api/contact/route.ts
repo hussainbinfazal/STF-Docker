@@ -30,3 +30,21 @@ export async function PUT(req:NextResponse,res:NextResponse) {
 
     }
 }
+export async function DELETE(req:NextResponse,res:NextResponse) {
+    try{
+        const {firmware} = req.body
+        connectDB()
+     const FirmwareInDB = await Firmware.findByIdAndDelete(firmware)
+      
+    if(!FirmwareInDB) {
+        return NextResponse.json({message: "No Firmware found"}, {status: 404})
+    }
+    return NextResponse.json({message : "Firmware Deleted Successfully"}, {status: 200})
+    }catch(error){
+        return NextResponse.json({message: "Internal Server Error"}, {status: 500})
+    }
+    finally{
+        return NextResponse.json({message: "Internal Server Error"}, {status: 500})
+
+    }
+}
