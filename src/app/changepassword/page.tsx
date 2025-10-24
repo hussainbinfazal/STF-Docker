@@ -63,7 +63,7 @@ const page: React.FC = () => {
             type='submit'
             className='w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition duration-200'
           >
-            Change Password
+            Exit
           </button>
         </form>
       </div>
