@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const page: React.FC = () => {
+const ChangePasswordPage: React.FC = () => {
   const [formData, setFormData] = useState({
     currentPassword: '',
     newPassword: '',
@@ -77,4 +77,4 @@ const page: React.FC = () => {
   )
 }
 
-export default page
+export default ChangePasswordPage
