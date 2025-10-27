@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 
 const ChangePasswordPage: React.FC = () => {
@@ -13,6 +14,7 @@ const ChangePasswordPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const rsp = axios.get('api/v1')
     // Handle password change logic here
     console.log('Password change submitted');
   };
