@@ -12,11 +12,14 @@ const ChangePasswordPage: React.FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const rsp = axios.get('api/v1')
-    // Handle password change logic here
-    console.log('Password change submitted');
+    try {
+      const rsp = await axios.post(`/api/v1/${process.env.NEXT_PUBLIC_UPDATE_REQ_PASSWORD}`, formData);
+      console.log('Password change submitted:', rsp.data);
+    } catch (error) {
+      console.error('Error changing password:', error);
+    }
   };
 
   return (
@@ -65,13 +68,7 @@ const ChangePasswordPage: React.FC = () => {
             type='submit'
             className='w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition duration-200'
           >
-            Exit
-          </button>
-          <button
-            type='submit'
-            className='w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition duration-200'
-          >
-            Cancel
+            Change Password
           </button>
         </form>
       </div>
