@@ -15,7 +15,7 @@ const ChangePasswordPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const rsp = await axios.post(`/api/v1/${process.env.NEXT_PUBLIC_UPDATE_REQ_PASSWORD}`, formData);
+      const rsp = await axios.put(`/api/v1/${process.env.NEXT_PUBLIC_UPDATE_REQ_PASSWORD}`, formData);
       console.log('Password change submitted:', rsp.data);
     } catch (error) {
       console.error('Error changing password:', error);
