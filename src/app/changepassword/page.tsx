@@ -42,8 +42,19 @@ const ChangePasswordPage: React.FC = () => {
           <div>
             <label className='block text-sm font-medium mb-1'>Current Password</label>
             <input
-              type='oldPassword'
+              type='text'
               name='oldPassword'
+              value={formData.currentPassword}
+              onChange={handleChange}
+              className='w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+              required
+            />
+          </div>
+          <div>
+            <label className='block text-sm font-medium mb-1'>Current Password</label>
+            <input
+              type='text'
+              name='Password'
               value={formData.currentPassword}
               onChange={handleChange}
               className='w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
