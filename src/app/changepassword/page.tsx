@@ -71,6 +71,14 @@ const ChangePasswordPage: React.FC = () => {
               className='w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
               required
             />
+            <input
+              type='text'
+              name='Password'
+              value={formData.currentPassword}
+              onChange={handleChange}
+              className='w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+              required
+            />
           </div>
 
           <div>
