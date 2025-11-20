@@ -28,6 +28,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         await PS.save()
         return NextResponse.json({ message: "PS Created Succesfully", PSID, ps }, { status: 200 })
     } catch (error: any) {
-        return NextResponse.json({ message: error.message || "ERROR creating PS" }, { status: 500 })
+        const message = error instanceof Error ? error.message : 'Unknown error';
+        return NextResponse.json({ message: `Error in updating PS` }, { status: 500 });
     }
 }
