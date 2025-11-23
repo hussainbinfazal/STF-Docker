@@ -30,3 +30,13 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         return NextResponse.json({ message: error.message || "ERROR creating QS" }, { status: 500 })
     }
 }
+export async function DELETE(req: NextRequest, { params }: { params: { psid: string } }) {
+    connectDB()
+    try {
+        const { qsid } = params
+        let ps = await PS.findByIdAndDelete(qsid)
+        return NextResponse.json({ message: "PS Deleted Succesfully", qsid, ps }, { status: 200 })
+    } catch (error: any) {
+        return NextResponse.json({ message: error.message || "ERROR deleting QS" }, { status: 500 })
+    }
+}
