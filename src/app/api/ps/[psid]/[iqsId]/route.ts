@@ -1,5 +1,4 @@
-import { NextRequest } from "next/server"
-
+c
 export async function POST(req: NextRequest, { params }: { params: { psid: string } }) {
     connectDB()
     try {
