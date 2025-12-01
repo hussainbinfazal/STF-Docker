@@ -26,14 +26,14 @@ export async function DELETE(req: NextResponse, context: { params: { team: strin
         return NextResponse.json({ team: existingTeam, message: "Team with this ID Deleted Successfully" }, { status: 200 })
     } catch (error) {
         return NextResponse.json({ error: "Failed to delete team" }, { status: 500 })
-     }
+    }
 }
 export async function POSt(req: NextResponse, context: { params: { team: string } }) {
     try {
-        
+
         await connectDB()
         const body = await req.json()
-        if(!req.json().name || !req.json().role || !req.json().email){
+        if (!req.json().name || !req.json().role || !req.json().email) {
             return NextResponse.json({ error: "Please fill all the fields" }, { status: 400 })
         };
         const newTeam = new Team({
@@ -46,6 +46,7 @@ export async function POSt(req: NextResponse, context: { params: { team: string 
 
         return NextResponse.json({ team: newTeam, message: "New Team Created Successfully" }, { status: 200 })
     } catch (error: any) {
+        const messsage = error.message || "Failed to create team";
         return NextResponse.json({ error: "Failed to delete team" }, { status: 500 })
-     }
+    }
 }
