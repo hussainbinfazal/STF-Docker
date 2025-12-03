@@ -19,11 +19,11 @@ export async function PUT(req: NextResponse, context: { params: { team: string }
 export async function DELETE(req: NextResponse, context: { params: { team: string } }) {
     try {
         await connectDB()
-        const existingteamId = context.params.team;
+        const existingTeamId = context.params.team;
         const body = request.json()
         const existingTeam = await Team.findByIdAndDelete({ id: existingteamId });
 
-        return NextResponse.json({ team: existingTeam, message: "Team with this ID Deleted Successfully" }, { status: 200 })
+        return NextResponse.json({ team: existingTeam,TeamId:existingTeamId, message: "Team with this ID Deleted Successfully" }, { status: 200 })
     } catch (error) {
         return NextResponse.json({ error: "Failed to delete team" }, { status: 500 })
     }
