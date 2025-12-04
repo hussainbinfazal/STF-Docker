@@ -24,7 +24,7 @@ export async function DELETE(req: NextResponse, context: { params: { team: strin
         const existingTeam = await Team.findByIdAndDelete({ id: existingteamId });
 
         return NextResponse.json({ team: existingTeam,TeamId:existingTeamId, message: "Team with this ID Deleted Successfully" }, { status: 200 })
-    } catch (error) {
+    } catch (error : any) {
         return NextResponse.json({ error: "Failed to delete team" }, { status: 500 })
     }
 }
