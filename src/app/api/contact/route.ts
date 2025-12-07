@@ -22,7 +22,7 @@ export async function PUT(req:NextResponse,res:NextResponse) {
     Firmware.fc = req.body
     await Firmware.save()
     return NextResponse.json({Firmware}, {status: 200})
-    }catch(error){
+    }catch(error: any){
         return NextResponse.json({message: "Internal Server Error"}, {status: 500})
     }
     finally{
