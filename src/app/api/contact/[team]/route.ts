@@ -40,7 +40,7 @@ export async function POSt(req: NextResponse, context: { params: { team: string 
         if (!req.json().name || !req.json().role || !req.json().email) {
             return NextResponse.json({ error: "Please fill all the fields" }, { status: 400 })
         };
-        const newTeam = new Team({
+        const newTeam:ITeam = new Team({
             name: body.name,
             role: body.role,
             email: body.email,
