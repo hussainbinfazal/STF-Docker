@@ -25,7 +25,7 @@ export async function DELETE(req: NextResponse, context: { params: { team: strin
         await connectDB()
         const existingTeamId = context.params.team;
         const body = request.json()
-        const existingTeam = await Team.findByIdAndDelete({ id: existingteamId });
+        const existingTeam : ITeam = await Team.findByIdAndDelete({ id: existingteamId });
 
         return NextResponse.json({ team: existingTeam, TeamId: existingTeamId, message: "Team with this ID Deleted Successfully" }, { status: 200 })
     } catch (error: any) {
