@@ -5,7 +5,7 @@ export async function GET(req: NextResponse, context: { params: { team: string }
     try {
         connectDB()
         const existingteamId = context.params.team;
-        const existingTeam = await Team.findOne({ name: existingteam });
+        const existingTeam:ITeam = await Team.findOne({ name: existingteam });
 
         return NextResponse.json({ team: existingTeam, message: "Team Request Updated" }, { status: 200 })
     } catch (error: any) {
