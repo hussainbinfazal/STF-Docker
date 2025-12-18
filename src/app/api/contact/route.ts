@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET(req: NextResponse) {
     try {
         connectDB()
-        const Firmware = await Firmware.find()
+        const Firmware:IFirmware = await Firmware.find()
         if (!Firmware) {
             return NextResponse.json({ message: "No Firmware found" }, { status: 404 })
         }
