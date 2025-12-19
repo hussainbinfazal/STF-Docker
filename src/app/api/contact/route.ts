@@ -18,7 +18,7 @@ export async function GET(req: NextResponse) {
 export async function PUT(req: NextResponse, res: NextResponse) {
     try {
         connectDB()
-        const Firmware = await Firmware.find()
+        const Firmwar:IFirmware = await Firmware.find()
 
         if (!Firmware) {
             return NextResponse.json({ message: "No Firmware found" }, { status: 404 })
