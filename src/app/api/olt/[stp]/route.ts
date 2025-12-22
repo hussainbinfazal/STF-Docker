@@ -30,7 +30,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { stp: stri
 export async function GET(req: NextRequest, { params }: { params: { stp: string } }): Promise<NextResponse> {
     try {
         const { stp } = params
-        const stpInDb = await Firmware.findById(stp)
+        const stpInDb:IFirmware = await Firmware.findById(stp)
         if(!stdInDb) return NextResponse.json({message: "Stp Not Found"}, {status:404})
 
         return NextResponse.json({ message: "STP", stpInDb }, { status: 201 })
