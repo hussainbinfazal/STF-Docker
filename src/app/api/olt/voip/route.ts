@@ -21,7 +21,7 @@ export async function PUT(request: NextRequest) : Promise<NextResponse> {
 export async function DELETE(request: NextRequest) : Promise<NextResponse> {
     try {
         const {number,Id,Password} = await request.json();
-        const fd = await Firmware.findById({_id:Id})
+        const fd :IFirmware = await Firmware.findById({_id:Id})
         if(!fd) return NextResponse.json({ message: 'Data not found' }, { status: 404 });
     } catch (error : any) {
         return NextResponse.json({ message: 'Error fetching data' }, { status: 500 });
