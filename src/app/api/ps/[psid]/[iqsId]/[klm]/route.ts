@@ -3,7 +3,7 @@ export async function POST(req: NextRequest, { params }: { params: { psid: strin
     connectDB()
     try {
         const { klm } = params
-        let ps = await PS.findById(klm)
+        let ps:IPS = await PS.findById(klm)
         if (ps) {
             return NextResponse.json({ message: "KLM already exists with this KLMID" }, { status: 404 })
         }
