@@ -18,7 +18,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
     connectDB()
     try {
         const { qsid } = params
-        let ps = await PS.findById(qsid)
+        let ps:IPS = await PS.findById(qsid)
         if (ps) {
             return NextResponse.json({ message: "PS already exists with this PSID" }, { status: 404 })
         }
