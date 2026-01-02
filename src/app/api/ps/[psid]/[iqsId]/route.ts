@@ -3,7 +3,7 @@ export async function POST(req: NextRequest, { params }: { params: { psid: strin
     connectDB()
     try {
         const { qsid } = params
-        let ps:IPS = await PS.findById(qsid)
+        let ps:IPS |  null = await PS.findById(qsid)
         if (ps) {
             return NextResponse.json({ message: "PS already exists with this PSID" }, { status: 404 })
         }
