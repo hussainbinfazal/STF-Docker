@@ -18,7 +18,7 @@ export async function GET(req: NextResponse) {
 export async function PUT(req: NextResponse, res: NextResponse) {
     try {
         connectDB()
-        const Firmwar:IFirmware = await Firmware.find()
+        const Firmwar : IFirmware = await Firmware.find()
 
         if (!Firmware) {
             return NextResponse.json({ message: "No Firmware found" }, { status: 404 })
@@ -43,6 +43,7 @@ export async function DELETE(req: NextResponse, res: NextResponse) {
         if (!FirmwareInDB) {
             return NextResponse.json({ message: "No Firmware found" }, { status: 404 })
         }
+        // Firmware types added
         return NextResponse.json({ message: "Firmware Deleted Successfully" }, { status: 200 })
     } catch (error: any) {
         return NextResponse.json({ message: "Internal Server Error , Please Try Again" }, { status: 500 })
