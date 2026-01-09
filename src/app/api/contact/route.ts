@@ -38,7 +38,7 @@ export async function DELETE(req: NextResponse, res: NextResponse) {
     try {
         const { firmware } = req.body
         connectDB()
-        const FirmwareInDB :IFirmware = await Firmware.findByIdAndDelete(firmware)
+        const FirmwareInDB :IFirmware | null = await Firmware.findByIdAndDelete(firmware)
 
         if (!FirmwareInDB) {
             return NextResponse.json({ message: "No Firmware found" }, { status: 404 })
