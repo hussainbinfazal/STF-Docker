@@ -29,7 +29,7 @@ export async function PUT(req: NextResponse, context: { params: { team: string }
     export async function DELETE(req: NextResponse, context: { params: { team: string } }) {
         try {
             await connectDB()
-            const existingTeamId = context.params.team;
+            const existingTeamId : string = context.params.team;
             const body = request.json()
             const existingTeam: ITeam = await Team.findByIdAndDelete({ id: existingteamId });
 
