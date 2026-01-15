@@ -20,7 +20,7 @@ export async function PUT(req: NextRequest, { params }: { params: { stp: string 
 export async function DELETE(req: NextRequest, { params }: { params: { stp: string } }): Promise<NextResponse> {
     try {
         const { stp } = params
-        const stpInDb:IFirmware = await Firmware.findByIdAndDelete(stp)
+        const stpInDb:IFirmware | null = await Firmware.findByIdAndDelete(stp)
 
         return NextResponse.json({ message: "Stp Deleted Succesfully", stp }, { status: 501 })
     } catch (error: any) {
