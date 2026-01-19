@@ -40,7 +40,7 @@ export async function DELETE(req: NextRequest) {
     try {
         connectDB();
         const { userID } = await req.json();
-        const user: IUSER = await User.findByIdAndUpdate(userID, { isActive: false });
+        const user: IUser | null = await User.findByIdAndUpdate(userID, { isActive: false });
         if (!user) {
             return NextResponse.json({ message: "User not found" }, { status: 404 });
         }
