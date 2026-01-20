@@ -46,7 +46,7 @@ export async function PUT(req: NextResponse, context: { params: { team: string }
             if (!req.json().name || !req.json().role || !req.json().email) {
                 return NextResponse.json({ error: "Please fill all the fields" }, { status: 400 })
             };
-            const newTeam: ITeam = new Team({
+            const newTeam: ITeam | null = new Team({
                 name: body.name,
                 role: body.role,
                 email: body.email,
