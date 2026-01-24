@@ -38,7 +38,7 @@ export async function PUT(req: NextRequest, { params }: { params: { OLTID: strin
 export async function DELETE(req: NextRequest, { params }: { params: { OLTID: string }}) {
     connectDB()
     const { OLTID } = params
-    const firmware = await Firmware.findByIdAndDelete(OLTID)
+    const firmware: Ifirmware = await Firmware.findByIdAndDelete(OLTID)
     if(!firmware) {
         return NextResponse.json({message: "No Firmware found"}, {status: 404})
     }
