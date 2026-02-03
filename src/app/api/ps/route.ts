@@ -19,7 +19,7 @@ export async function PUT(req: NextRequest, { params }: { params: { OLTID: strin
     connectDB()
     try {
         const { OLTID } = params
-        const firmware :IFirmware | null = await Firmware.findById(OLTID)
+        const firmware :IFirmware | null |UFirmware = await Firmware.findById(OLTID)
         if (!firmware) {
             return NextResponse.json({ message: "No Firmware found" }, { status: 404 })
         }
