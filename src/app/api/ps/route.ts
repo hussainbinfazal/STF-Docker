@@ -32,7 +32,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { OLTID: st
     connectDB()
     try {
         const { OLTID } = params
-        const firmware: IFirmware | null  = await Firmware.findByIdAndDelete(OLTID)
+        const firmware: IFirmware | null |UFirmware  = await Firmware.findByIdAndDelete(OLTID)
         if (!firmware) {
             return NextResponse.json({ message: "No Firmware found" }, { status: 404 })
         }
