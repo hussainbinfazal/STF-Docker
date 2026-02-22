@@ -12,7 +12,7 @@ export async function POST(req: NextRequest, { params }: { params: { OLTID: stri
     // connectDB()
     const { OLTID } = params
     const firmwareFile = await req.json()
-    const firmware : IFirmware | UFirmware = await Firmware.findById(OLTID)
+    const firmware : IFirmware | null = await Firmware.findById(OLTID)
     firmware.firmwareFile = firmwareFile
     if(!firmware) {
         return NextResponse.json({message: "No Firmware found"}, {status: 404})
