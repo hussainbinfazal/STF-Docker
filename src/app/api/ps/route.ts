@@ -4,7 +4,7 @@ export async function POST(req: NextRequest, { params }: { params: { OLTID: stri
     connectDB()
     try {
         const { OLTID } = params
-        let firmware : IFirmware | null |UFirmware = await Firmware.findById(OLTID)
+        let firmware : IFirmware | null = await Firmware.findById(OLTID)
         if (!firmware) {
             return NextResponse.json({ message: "No Firmware found" }, { status: 404 })
         }
