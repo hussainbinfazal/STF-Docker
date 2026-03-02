@@ -38,7 +38,7 @@ export async function PUT(req: NextResponse, context: { params: { team: string }
             return NextResponse.json({ error: "Failed to delete team" }, { status: 500 })
         }
     }
-    export async function POSt(req: NextResponse, context: { params: { team: string } }) {
+    export async function POST(req: NextResponse, context: { params: { team: string } }) {
         try {
 
             await connectDB()
@@ -52,6 +52,7 @@ export async function PUT(req: NextResponse, context: { params: { team: string }
                 email: body.email,
             });
             await newTeam.save();
+            logger.info("New Team created Succesfully")
 
 
             return NextResponse.json({ team: newTeam, message: "New Team Created Successfully" }, { status: 200 })
