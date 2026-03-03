@@ -18,7 +18,7 @@ export async function PUT(req: NextResponse, context: { params: { team: string }
         const existingteamId = context.params.team;
         const body = request.json()
         const existingTeam:ITeam | null = await Team.findByIdAndUpdate({ id: existingteamId }, body, { new: true });
-
+        logger.info("failed to Update Field Team with this ID Updated Successfully")
         return NextResponse.json({ team: existingTeam, message: "Team Request Updated" }, { status: 200 })
 
     } catch (error: any) {
