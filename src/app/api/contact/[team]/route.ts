@@ -9,6 +9,7 @@ export async function GET(req: NextResponse, context: { params: { team: string }
 
         return NextResponse.json({ team: existingTeam, message: "Team Request Updated" }, { status: 200 })
     } catch (error: any) {
+        logger.warn("Failed to fetch team with this ID")
         return NextResponse.json({ error: "Failed to fetch team" }, { status: 500 })
     }
 }
@@ -25,14 +26,14 @@ export async function PUT(req: NextResponse, context: { params: { team: string }
         return NextResponse.json({ error: "Failed to Update team" }, { status: 500 })
 
     }
-
+}
     export async function DELETE(req: NextResponse, context: { params: { team: string } }) {
         try {
             await connectDB()
             const existingTeamId : string = context.params.team;
             const body = request.json()
             const existingTeam: ITeam | null = await Team.findByIdAndDelete({ id: existingteamId });
-
+            logger.info("failed to Update Field Team with this ID Updated Succesfully")
             return NextResponse.json({ team: existingTeam, TeamId: existingTeamId, message: "Team with this ID Deleted Successfully" }, { status: 200 })
         } catch (error: any) {
             return NextResponse.json({ error: "Failed to delete team" }, { status: 500 })
