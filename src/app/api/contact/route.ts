@@ -12,6 +12,8 @@ export async function GET(req: NextResponse) {
         logger.info("Firmware Fetched Successfully",Firmware._id)
         return NextResponse.json({ Firmware }, { status: 200 })
     } catch (error: any) {
+        logger.warn("Failed to fetch Firmware")
+        return NextResponse.json({ message: "Internal Server Error" }, { status: 500 })
 
     }
 }
