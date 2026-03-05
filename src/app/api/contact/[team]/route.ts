@@ -61,6 +61,7 @@ export async function PUT(req: NextResponse, context: { params: { team: string }
 
             return NextResponse.json({ team: newTeam, message: "New Team Created Successfully" }, { status: 200 })
         } catch (error: any) {
+            logger.warn("Failed to create Team , Please retry again")
             const messsage = error.message || "Failed to create team";
             return NextResponse.json({ error: "Failed to delete team" }, { status: 500 })
         }
