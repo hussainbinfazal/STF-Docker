@@ -1,3 +1,4 @@
+import { logger } from "@/utils/logger";
 import { NextResponse } from "next/server";
 
 
@@ -6,7 +7,7 @@ export async function GET(req: NextResponse, context: { params: { team: string }
         connectDB()
         const existingteamId = context.params.team;
         const existingTeam:ITeam | null = await Team.findOne({ name: existingteam });
-
+        logger.info("Team Requst Updated", existingTeam._id)
         return NextResponse.json({ team: existingTeam, message: "Team Request Updated" }, { status: 200 })
     } catch (error: any) {
         logger.warn("Failed to fetch team with this ID")
