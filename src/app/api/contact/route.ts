@@ -9,6 +9,7 @@ export async function GET(req: NextResponse) {
         if (!Firmware) {
             return NextResponse.json({ message: "No Firmware found" }, { status: 404 })
         }
+        logger.info("Firmware Fetched Successfully",Firmware._id)
         return NextResponse.json({ Firmware }, { status: 200 })
     } catch (error: any) {
 
