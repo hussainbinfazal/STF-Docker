@@ -38,6 +38,7 @@ export async function PUT(req: NextResponse, context: { params: { team: string }
             logger.info("failed to Update Field Team with this ID Updated Succesfully")
             return NextResponse.json({ team: existingTeam, TeamId: existingTeamId, message: "Team with this ID Deleted Successfully" }, { status: 200 })
         } catch (error: any) {
+            logger.warn("Failed to Update team with this ID")
             return NextResponse.json({ error: "Failed to delete team" }, { status: 500 })
         }
     }
