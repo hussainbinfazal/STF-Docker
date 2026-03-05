@@ -24,6 +24,7 @@ export async function PUT(req: NextResponse, context: { params: { team: string }
         return NextResponse.json({ team: existingTeam, message: "Team Request Updated" }, { status: 200 })
 
     } catch (error: any) {
+        logger.warn("Failed to Update team with this ID")
         return NextResponse.json({ error: "Failed to Update team" }, { status: 500 })
 
     }
