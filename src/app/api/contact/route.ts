@@ -29,8 +29,10 @@ export async function PUT(req: NextResponse, res: NextResponse) {
         }
         Firmware.fc = req.body
         await Firmware.save()
+        logger.info("Firmware Found with this Id")
         return NextResponse.json({ Firmware }, { status: 200 })
     } catch (error: any) {
+        logger.warn("Error in updating error")
         return NextResponse.json({ message: "Internal Server Error" }, { status: 500 })
     }
     finally {
