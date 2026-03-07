@@ -50,8 +50,10 @@ export async function DELETE(req: NextResponse, res: NextResponse) {
             return NextResponse.json({ message: "No Firmware found" }, { status: 404 })
         }
         // Firmware types added
+        logger.info("Firmware Deleted Succesfully")
         return NextResponse.json({ message: "Firmware Deleted Successfully" }, { status: 200 })
     } catch (error: any) {
+        logger.warn("Internal Server Error, please try again")
         return NextResponse.json({ message: "Internal Server Error , Please Try Again" }, { status: 500 })
     }
     finally {
