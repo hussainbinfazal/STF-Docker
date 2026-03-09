@@ -57,6 +57,7 @@ export async function DELETE(req: NextResponse, res: NextResponse) {
         return NextResponse.json({ message: "Internal Server Error , Please Try Again" }, { status: 500 })
     }
     finally {
+        logger.warn("Formware Deleted Successfully")
         return NextResponse.json({ message: "Internal Server Error" }, { status: 500 })
 
     }
