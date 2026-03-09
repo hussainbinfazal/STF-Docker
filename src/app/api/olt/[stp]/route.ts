@@ -4,6 +4,7 @@ export async function POST(req: NextRequest, { params }: { params: { stp: string
     try {
         const { stp } = params
         return NextResponse.json({ message: "Not implemented", stp }, { status: 501 })
+        logger.warn("STP Implementation Failed",{stpId: stp._id})
     } catch (error: any) {
         return NextResponse.json({ message: error.message || "ERROR processing request" }, { status: 500 })
     }
