@@ -1,11 +1,13 @@
+import { logger } from "@/utils/logger"
 import { NextRequest, NextResponse } from "next/server"
 
 export async function POST(req: NextRequest, { params }: { params: { stp: string } }): Promise<NextResponse> {
     try {
         const { stp } = params
+        logger.warn("STP Implementation in process",{stpId: stp._id})
         return NextResponse.json({ message: "Not implemented", stp }, { status: 501 })
-        logger.warn("STP Implementation Failed",{stpId: stp._id})
     } catch (error: any) {
+        logger.error("STP Implementation Failed",{stpId: stp._id})
         return NextResponse.json({ message: error.message || "ERROR processing request" }, { status: 500 })
     }
 }
