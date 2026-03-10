@@ -24,7 +24,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { stp: stri
     try {
         const { stp } = params
         const stpInDb:IFirmware | null  = await Firmware.findByIdAndDelete(stp)
-
+        logger.info("STP Deleted Successfully",{stpId: stp._id})
         return NextResponse.json({ message: "Stp Deleted Succesfully", stp }, { status: 501 })
     } catch (error: any) {
         return NextResponse.json({ message: error.message || "ERROR processing request" }, { status: 500 })
