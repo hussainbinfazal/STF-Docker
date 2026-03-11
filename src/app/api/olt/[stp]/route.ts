@@ -15,6 +15,7 @@ export async function PUT(req: NextRequest, { params }: { params: { stp: string 
     try {
         const { stp } = params
         const stpInDb :IFirmware | null  = await Firmware.findByIdAndUpdate(stp)
+        logger.info("STP Updated Successfully",{stpId: stp._id})
         return NextResponse.json({ message: "Not implemented", stp }, { status: 501 })
     } catch (error: any) {
         return NextResponse.json({ message: error.message || "ERROR processing request" }, { status: 500 })
@@ -23,7 +24,7 @@ export async function PUT(req: NextRequest, { params }: { params: { stp: string 
 export async function DELETE(req: NextRequest, { params }: { params: { stp: string } }): Promise<NextResponse> {
     try {
         const { stp } = params
-        const stpInDb:IFirmware | null  = await Firmware.findByIdAndDelete(stp)
+        const stpInDb: IFirmware | null  = await Firmware.findByIdAndDelete(stp)
         logger.info("STP Deleted Successfully",{stpId: stp._id})
         return NextResponse.json({ message: "Stp Deleted Succesfully", stp }, { status: 501 })
     } catch (error: any) {
