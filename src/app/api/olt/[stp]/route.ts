@@ -29,6 +29,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { stp: stri
         logger.info("STP Deleted Successfully",{stpId: stp._id})
         return NextResponse.json({ message: "Stp Deleted Succesfully", stp }, { status: 501 })
     } catch (error: any) {
+        logger.error("Internal server error ")
         return NextResponse.json({ message: error.message || "ERROR processing request" }, { status: 500 })
     }
 }
