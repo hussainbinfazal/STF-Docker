@@ -39,7 +39,7 @@ export async function GET(req: NextRequest, { params }: { params: { stp: string 
         const stpInDb:IFirmware | null  = await Firmware.findById(stp) //Improve firmware types then update then make it firmware type
          
         if(!stdInDb) return NextResponse.json({message: "Stp Not Found"}, {status:404})
-
+        logger.info("STP Fetched Successfully")
         return NextResponse.json({ message: "STP", stpInDb }, { status: 201 })
     } catch (error: any) {
         return NextResponse.json({ message: error.message || "ERROR processing request" }, { status: 500 })
