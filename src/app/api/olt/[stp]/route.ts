@@ -42,6 +42,7 @@ export async function GET(req: NextRequest, { params }: { params: { stp: string 
         logger.info("STP Fetched Successfully")
         return NextResponse.json({ message: "STP", stpInDb }, { status: 201 })
     } catch (error: any) {
+    logger.error("Internal Server Error")
         return NextResponse.json({ message: error.message || "ERROR processing request" }, { status: 500 })
     }
 }
