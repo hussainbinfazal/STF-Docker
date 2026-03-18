@@ -32,13 +32,19 @@ export async function POST(req: NextRequest, context: { params: { OLTID: string 
 export async function PUT(req: NextRequest, { params }: { params: { OLTID: string } }) {
     // connectDB()
     const { OLTID } = params
+    if(!mongoose.Types.ObjectId.isValid(OLTID)){
+        logger.error("Invalid Id");
+        return NextResponse.json({
+            message: "Invalid Id",
+        },{status:400})
+    }
     const firmwareFile = await req.json()
     const firmware : Ifirmware | null = await Firmware.findById(OLTID)
     firmware.firmwareFile = firmwareFile
     if(!firmware) {
         return NextResponse.json({message: "No Firmware found"}, {status: 404})
     }
-    
+    logger.info("Firmware Found with this Id")
     return NextResponse.json({OLTID, firmwareFile}, {status: 200})
 }
 
