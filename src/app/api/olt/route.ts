@@ -31,7 +31,8 @@ export async function POST(req: NextRequest, context: { params: { OLTID: string 
 
 export async function PUT(req: NextRequest, { params }: { params: { OLTID: string } }) {
     // connectDB()
-    const { OLTID } = params
+    try{
+const { OLTID } = params
     if(!mongoose.Types.ObjectId.isValid(OLTID)){
         logger.error("Invalid Id");
         return NextResponse.json({
@@ -46,6 +47,10 @@ export async function PUT(req: NextRequest, { params }: { params: { OLTID: strin
     }
     logger.info("Firmware Found with this Id")
     return NextResponse.json({OLTID, firmwareFile}, {status: 200})
+    }catch(error:any){
+        const message = error instanceof Error ? error.message : 'Unknown error';
+        return NextResponse.json({ message: `Error in updating firmware` }, { status: 500 });
+    }
 }
 
 export async function DELETE(req: NextRequest, { params }: { params: { OLTID: string }}) {
