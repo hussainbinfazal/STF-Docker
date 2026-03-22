@@ -62,6 +62,7 @@ try{
     if(!firmware) {
         return NextResponse.json({message: "No Firmware found"}, {status: 404})
     }
+    logger.info("Firmware Deleted Successfully")
     return NextResponse.json({OLTID}, {status: 200})
 }catch(error:any){
     const message = error instanceOf Error ? error.message : 'Unknown error';
