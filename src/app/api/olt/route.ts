@@ -55,6 +55,7 @@ const { OLTID } = params
 }
 
 export async function DELETE(req: NextRequest, { params }: { params: { OLTID: string }}) {
+try{
     connectDB()
     const { OLTID } = params
     const firmware: Ifirmware | null  = await Firmware.findByIdAndDelete(OLTID)
@@ -62,6 +63,12 @@ export async function DELETE(req: NextRequest, { params }: { params: { OLTID: st
         return NextResponse.json({message: "No Firmware found"}, {status: 404})
     }
     return NextResponse.json({OLTID}, {status: 200})
+}catch(error:any){
+    const message = error instanceOf Error ? error.message : 'Unknown error';
+    logger.error("Error in updating firmware",{error:message})
+    return NextResponse.json({ message: `Error in updating firmware` }, { status: 500 });
+
+}
 export async function POST(req: NextRequest, { params }: { params: { OLTID: string }}) {
     connectDB()
     try {
