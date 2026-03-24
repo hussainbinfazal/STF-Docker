@@ -74,11 +74,15 @@ export async function POST(req: NextRequest, { params }: { params: { OLTID: stri
     connectDB()
     try {
         const { OLTID } = params
-        const firmware:IFirmware | null  = await Firmware.findByIdAndDelete(OLTID)
+        const firmware:IFirmware | null  = await Firmware.findById(OLTID)
         if(!firmware) {
             return NextResponse.json({message: "No Firmware found"}, {status: 404})
         }
-    return NextResponse.json({OLTID}, {status: 200})
+        const newFirmware = new firmware({firmware: OLTID})
+        await newFirmware.save()
+        logger.info("Firmware Created Successfully")
+        return NextResponse.json({OLTID}, {status: 200})
+
     } catch (error: any) {
         return NextResponse.json({message: error.message || "ERROR creating firmware"}, {status: 500})
     }
