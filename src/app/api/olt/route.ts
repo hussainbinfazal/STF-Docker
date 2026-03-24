@@ -84,6 +84,7 @@ export async function POST(req: NextRequest, { params }: { params: { OLTID: stri
         return NextResponse.json({OLTID}, {status: 200})
 
     } catch (error: any) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
         return NextResponse.json({message: error.message || "ERROR creating firmware"}, {status: 500})
     }
 }
