@@ -12,6 +12,7 @@ export async function POST(req: NextRequest, { params }: { params: { psid: strin
         logger.info("KLM crated Successfully",{KLMID:klm})
         return NextResponse.json({ message: "KLM Created Succesfully", klm, ps }, { status: 200 })
     } catch (error: any) {
+        const message = error instanceof Error ? error.message : "Internal Server Error"
         return NextResponse.json({ message: error.message || "ERROR creating KLM" }, { status: 500 })
     }
 }
