@@ -27,6 +27,10 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         logger.info("PS Created Successfully")
         return NextResponse.json({ message: "PS Created Succesfully", qsid, ps }, { status: 200 })
     } catch (error: any) {
+        const message = error instanceof Error ? error.message : "Internal server Error"
+        logger.error("Error in creating Ps",{
+            message
+        })
         return NextResponse.json({ message: error.message || "ERROR creating QS" }, { status: 500 })
     }
 }
