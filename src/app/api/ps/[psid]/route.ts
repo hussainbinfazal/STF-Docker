@@ -26,9 +26,14 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
             return NextResponse.json({ message: "PS already exists with this PSID" }, { status: 404 })
         }
         await PS.save()
+      logger.info("Ps already Exists with this ID")
         return NextResponse.json({ message: "PS Created Succesfully", PSID, ps }, { status: 200 })
     } catch (error: any) {
         const message = error instanceof Error ? error.message : 'Unknown error';
+        logger.error(
+            "Error in updating the PS"
+        )
+        
         return NextResponse.json({ message: `Error in updating PS` }, { status: 500 });
     }
 }
