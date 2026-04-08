@@ -31,7 +31,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
     } catch (error: any) {
         const message = error instanceof Error ? error.message : 'Unknown error';
         logger.error(
-            "Error in updating the PS"
+            "Error in updating the PS",{message}
         )
         
         return NextResponse.json({ message: `Error in updating PS` }, { status: 500 });
