@@ -20,7 +20,9 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
     try {
         const { psid } = params
         const body = await req.json()
-
+        if (!body) {
+            return NextResponse.json({ message: "No data provided" }, { status: 400 })
+        }
         let ps : IPS | null = await PS.findByIdAndUpdate(OLTID, body, { new: true })
         if (ps) {
             return NextResponse.json({ message: "PS already exists with this PSID" }, { status: 404 })
@@ -33,6 +35,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         logger.error(
             "Error in updating the PS",{message}
         )
+
         
         return NextResponse.json({ message: `Error in updating PS` }, { status: 500 });
     }
