@@ -6,6 +6,7 @@ export async function POST(request: NextRequest) : Promise<NextResponse> {
     try {
         const {number,Id,Password} = await request.json();
         return NextResponse.json(data);
+        logger.info("Data fetched successfully")
     } catch (error) {
         return NextResponse.json({ message: 'Error fetching data' }, { status: 500 });
     }
