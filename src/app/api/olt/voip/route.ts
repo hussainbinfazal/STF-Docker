@@ -8,6 +8,7 @@ export async function POST(request: NextRequest) : Promise<NextResponse> {
         return NextResponse.json(data);
         logger.info("Data fetched successfully")
     } catch (error) {
+         logger.error("Error in creating the voip number")
         return NextResponse.json({ message: 'Error fetching data' }, { status: 500 });
     }
 }
