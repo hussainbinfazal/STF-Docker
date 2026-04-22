@@ -15,7 +15,8 @@ export async function POST(request: NextRequest) : Promise<NextResponse> {
 export async function PUT(request: NextRequest) : Promise<NextResponse> {
     try {
         const {number,Id,Password} = await request.json();
-        return NextResponse.json(data);
+        logger.info("Voip number updated successfully")
+        return NextResponse.json({data},{status:200});
     } catch (error) {
         return NextResponse.json({ message: 'Error fetching data' }, { status: 500 });
     }
