@@ -1,3 +1,4 @@
+import { logger } from "@/utils/logger";
 import { NextRequest, NextResponse } from "next/server";
 
 
@@ -15,6 +16,10 @@ export async function POST(request: NextRequest) : Promise<NextResponse> {
 export async function PUT(request: NextRequest) : Promise<NextResponse> {
     try {
         const {number,Id,Password} = await request.json();
+if(!number || !id || !Password) {
+    logger.error("Missing required fields")
+    return NextResponse.json({ message: 'Data not found' }, { status: 404 });
+}
         logger.info("Voip number updated successfully")
         return NextResponse.json({data},{status:200});
     } catch (error:any) {
