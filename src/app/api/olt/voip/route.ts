@@ -16,10 +16,10 @@ export async function POST(request: NextRequest) : Promise<NextResponse> {
 export async function PUT(request: NextRequest) : Promise<NextResponse> {
     try {
         const {number,Id,Password} = await request.json();
-if(!number || !id || !Password) {
-    logger.error("Missing required fields")
-    return NextResponse.json({ message: 'Data not found' }, { status: 404 });
-}
+        if(!number || !Id || !Password) {
+        logger.error("Missing required fields")
+        return NextResponse.json({ message: 'Data not found' }, { status: 404 });
+        }
         logger.info("Voip number updated successfully")
         return NextResponse.json({data},{status:200});
     } catch (error:any) {
@@ -30,6 +30,10 @@ if(!number || !id || !Password) {
 export async function DELETE(request: NextRequest) : Promise<NextResponse> {
     try {
         const {number,Id,Password} = await request.json();
+        if(!number || !Id || !Password) {
+            logger.error("Missing required fields")
+            return NextResponse.json({message:"Data Not Found"},{status:404})
+        }
         const FfId :IFirmware | null  = await Firmware.findById({_id:Id})
         if(!fd) return NextResponse.json({ message: 'Data not found' }, { status: 404 });
     } catch (error : any) {
