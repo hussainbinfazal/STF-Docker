@@ -37,6 +37,7 @@ export async function DELETE(request: NextRequest) : Promise<NextResponse> {
         const FfId :IFirmware | null  = await Firmware.findById({_id:Id})
         if(!fd) return NextResponse.json({ message: 'Data not found' }, { status: 404 });
     } catch (error : any) {
+        logger.error("Error in Deleting the voip number")
         return NextResponse.json({ message: 'Error fetching data' }, { status: 500 });
     }
 }
