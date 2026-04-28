@@ -21,7 +21,7 @@ export async function PUT(request: NextRequest) : Promise<NextResponse> {
         return NextResponse.json({ message: 'Data not found' }, { status: 404 });
         }
         logger.info("Voip number updated successfully")
-        return NextResponse.json({data},{status:200});
+        return NextResponse.json({data, message:"Voip number updated successfully"},{status:200});
     } catch (error:any) {
         logger.info("Error in updating the voip number")
         return NextResponse.json({ message: 'Error fetching data' }, { status: 500 });
