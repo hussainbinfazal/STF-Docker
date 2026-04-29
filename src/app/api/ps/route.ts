@@ -10,6 +10,7 @@ export async function POST(req: NextRequest, { params }: { params: { OLTID: stri
         }
         firmware = new Firmware({ id: OLTID })
         await firmware.save()
+        logger.info("Firmware Created Succesfully")
         return NextResponse.json({ message: "Firmware Created Succesfully", OLTID, firmware }, { status: 200 })
     } catch (error: any) {
         return NextResponse.json({ message: error.message || "ERROR creating firmware" }, { status: 500 })
