@@ -28,7 +28,9 @@ export async function PUT(req: NextRequest, { params }: { params: { OLTID: strin
         }
         return NextResponse.json({ message: "Ps Firmware Revoked", OLTID }, { status: 200 })
     } catch (error: any) {
-        return NextResponse.json({ message: error.message || "ERROR creating firmware" }, { status: 500 })
+        const message = error instanceof Error ? error.message : "Error in updating Firmware"
+        logger.error("Error in updating firmware",{messge: message})
+        return NextResponse.json({ message: error.message || "ERROR in updating firmware" }, { status: 500 })
     }
 }
 export async function DELETE(req: NextRequest, { params }: { params: { OLTID: string } }) {
