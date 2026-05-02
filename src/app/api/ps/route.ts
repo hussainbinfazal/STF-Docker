@@ -26,6 +26,7 @@ export async function PUT(req: NextRequest, { params }: { params: { OLTID: strin
         if (!firmware) {
             return NextResponse.json({ message: "No Firmware found" }, { status: 404 })
         }
+        logger.info("Firmware Successfully Updated")
         return NextResponse.json({ message: "Ps Firmware Revoked", OLTID }, { status: 200 })
     } catch (error: any) {
         const message = error instanceof Error ? error.message : "Error in updating Firmware"
