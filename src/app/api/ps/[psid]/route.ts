@@ -29,6 +29,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         }
         let ps : IPS | null = await PS.findByIdAndUpdate(OLTID, body, { new: true })
         if (ps) {
+            logger.info("Ps already exists with this id ")
             return NextResponse.json({ message: "PS already exists with this PSID" }, { status: 404 })
         }
         await PS.save()
