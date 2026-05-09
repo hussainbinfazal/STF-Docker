@@ -39,13 +39,9 @@ export async function DELETE(req: NextRequest, { params }: { params: { psid: str
     connectDB()
     try {
         const { klm } = params
-        let ps:IPS | null = await PS.findById(klm)
-        if (ps) {
-            return NextResponse.json({ message: "KLM already exists with this KLMID" }, { status: 404 })
-        }
-        ps = new PS({ id: klm })
-        await PS.save()
-        logger.info("KLM crated Successfully",{KLMID:klm})
+        let ps:IPS | null = await PS.findByIdAndDelete(klm)
+        
+        logger.info("KLM Deleted Successfully",{KLMID:klm})
         return NextResponse.json({ message: "KLM Created Succesfully", klm, ps }, { status: 200 })
     } catch (error: any) {
         const message = error instanceof Error ? error.message : "Internal Server Error"
