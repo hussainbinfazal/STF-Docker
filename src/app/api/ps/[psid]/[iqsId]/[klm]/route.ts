@@ -21,7 +21,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
     connectDB()
     try {
         const { klm } = params
-        let ps:IPS | null = await PS.findById(klm)
+        let ps:IPS | null = await PS.findByIdAndUpdate(klm)
         if (ps) {
             return NextResponse.json({ message: "KLM already exists with this KLMID" }, { status: 404 })
         }
