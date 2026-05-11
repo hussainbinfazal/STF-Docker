@@ -25,8 +25,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         if (ps) {
             return NextResponse.json({ message: "KLM already exists with this KLMID" }, { status: 404 })
         }
-        ps = new PS({ id: klm })
-        await PS.save()
+      
         logger.info("KLM crated Successfully",{KLMID:klm})
         return NextResponse.json({ message: "KLM Created Succesfully", klm, ps }, { status: 200 })
     } catch (error: any) {
