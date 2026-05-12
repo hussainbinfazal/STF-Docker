@@ -21,11 +21,12 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
     connectDB()
     try {
         const { klm } = params
-        let ps:IPS | null = await PS.findByIdAndUpdate(klm)
+        const body = request.json()
+        let ps:IPS | null = await PS.findByIdAndUpdate(klm,body,{new : true})
         if (ps) {
             return NextResponse.json({ message: "KLM already exists with this KLMID" }, { status: 404 })
         }
-      
+        const 
         logger.info("KLM crated Successfully",{KLMID:klm})
         return NextResponse.json({ message: "KLM Created Succesfully", klm, ps }, { status: 200 })
     } catch (error: any) {
