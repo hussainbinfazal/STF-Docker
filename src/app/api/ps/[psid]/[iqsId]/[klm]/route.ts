@@ -46,6 +46,6 @@ export async function DELETE(req: NextRequest, { params }: { params: { psid: str
     } catch (error: any) {
         const message = error instanceof Error ? error.message : "Internal Server Error"
         logger.info("Error in post ps route",{message})
-        return NextResponse.json({ message: error.message || "ERROR creating KLM" }, { status: 500 })
+        return NextResponse.json({ message: error.message || "ERROR Deleting KLM" }, { status: 500 })
     }
 }
