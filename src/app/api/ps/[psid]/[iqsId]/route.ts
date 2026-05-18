@@ -25,7 +25,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         ps = new PS({ id: qsid })
         await PS.save()
         logger.info("PS Updated Successfully")
-        return NextResponse.json({ message: "PS Created Succesfully", qsid, ps }, { status: 200 })
+        return NextResponse.json({ message: "PS Updated Succesfully", qsid, ps }, { status: 200 })
     } catch (error: any) {
         const message = error instanceof Error ? error.message : "Internal server Error"
         logger.error("Error in creating Ps",{
