@@ -31,7 +31,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         logger.error("Error in creating Ps",{
             message
         })
-        return NextResponse.json({ message: error.message || "ERROR creating QS" }, { status: 500 })
+        return NextResponse.json({ message: error.message || "ERROR updating QS" }, { status: 500 })
     }
 }
 export async function DELETE(req: NextRequest, { params }: { params: { psid: string } }) {
