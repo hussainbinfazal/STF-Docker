@@ -4,11 +4,13 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { useState } from "react"
 
 export default function RouterInfoPage() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+  const [firmware,setFirmware] = useState<string>("")
 
   return (
     <main className="max-w-3xl mx-auto p-6">

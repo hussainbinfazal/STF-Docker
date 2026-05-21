@@ -126,6 +126,53 @@ function identity<T>(arg: T): T {
 
 const result = identity<number>(10);
 
+////Generic Constants
+function getLength <T extends {length : number}>(item: T): number {
+    return item.length
+}
+function getLength<T extends {length: number}>(item: T){
+    return item.length
+}
+function getLength <T extends {length : number}>(item: T ){
+    return item.length
+}
+
+
+/// type 
+type User = { 
+    name: string,
+    age: number
+}
+
+type userKeys = keyof User
+
+
+type animal = {
+    name: string,
+    age: number
+
+}
+
+type userKeys = keyof User
+
+//// type of 
+const user = {
+    name:"Hussain",
+    passion:"Coding , sleeping, flexing, working , achieviing goals"
+}
+
+type User = typeof user
+
+const user = {
+    name:"hussain",
+    passo:"hi"
+}
+type User = typeof user
+
+
+///Index signature 
+
+
 
 
 
