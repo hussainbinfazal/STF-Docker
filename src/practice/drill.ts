@@ -396,7 +396,7 @@ type IsString<T> = T extends string ? true : false;
 
 # 20. infer Keyword
 
-```ts
+```ts///Condiitonal types
 type Return<T> = T extends (...args: any[]) => infer R
   ? R
   : never;
