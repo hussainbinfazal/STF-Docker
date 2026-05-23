@@ -45,6 +45,9 @@ const multiply = function(a: number,b:number):number{
     return a*b
 }
 
+cosnt multiply = function(a:number,b:number):number{
+    return a*b
+}
 
 const sum =  function (...nums: number[]): number {
     return nums.reduce((acc, curr) => acc + curr, 0);
@@ -56,6 +59,19 @@ const sum =  function (...nums: number[]): number {
 function process(cb: (value:number) => void){
     cb(10)
 }
+
+function process(cb:(value:number) => void){
+    cb(10)
+}
+
+function process(cb: (value: number) => void){
+    cb(10)
+}
+
+function process(cb:(value:number)=> void  ){
+    cb(29)
+}
+
 
 
 
@@ -117,6 +133,10 @@ enum Status{
 /// Generics
 function identity<T>(arg: T): T {
     return arg
+}
+
+function getLength<T extends {length: number}>(item: T): number {
+    return item.length
 }
 
 
