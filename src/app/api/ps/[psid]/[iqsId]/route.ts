@@ -28,7 +28,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         return NextResponse.json({ message: "PS Updated Succesfully", qsid, ps }, { status: 200 })
     } catch (error: any) {
         const message = error instanceof Error ? error.message : "Internal server Error"
-        logger.error("Error in creating Ps",{
+        logger.error("Error in update route Ps",{
             message
         })
         return NextResponse.json({ message: error.message || "ERROR updating QS" }, { status: 500 })
