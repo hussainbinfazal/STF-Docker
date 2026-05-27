@@ -43,7 +43,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { psid: str
         return NextResponse.json({ message: "QS Deleted  Succesfully", qsid, ps }, { status: 200 })
     } catch (error: any) {
         const message = error instanceof Error ? error.message : "Internal server Error"
-        logger.info("Error In Deleting the qsId",{
+        logger.info("Error In Deleting the qsId server side",{
             message
         }
         )
