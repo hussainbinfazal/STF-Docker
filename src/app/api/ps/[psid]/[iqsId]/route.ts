@@ -47,6 +47,6 @@ export async function DELETE(req: NextRequest, { params }: { params: { psid: str
             message
         }
         )
-        return NextResponse.json({ message: error.message || "ERROR deleting QSID" }, { status: 500 })
+        return NextResponse.json({ message: error.message || "ERROR deleting QSID route" }, { status: 500 })
     }
 }
