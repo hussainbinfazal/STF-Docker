@@ -31,7 +31,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         logger.error("Error in update route controller Ps",{
             message
         })
-        return NextResponse.json({ message: error.message || "ERROR updating QS" }, { status: 500 })
+        return NextResponse.json({ message: error.message || "ERROR updating QS with this ID" }, { status: 500 })
     }
 }
 export async function DELETE(req: NextRequest, { params }: { params: { psid: string } }) {
