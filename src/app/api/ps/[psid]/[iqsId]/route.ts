@@ -10,7 +10,8 @@ export async function POST(req: NextRequest, { params }: { params: { psid: strin
         ps = new PS({ id: qsid })
         await PS.save()
         return NextResponse.json({ message: "PS Created Succesfully", qsid, ps }, { status: 200 })
-    } catch (error: any) {
+    } catch (error: unknown) {
+
         return NextResponse.json({ message: error.message || "ERROR creating QS" }, { status: 500 })
     }
 }
