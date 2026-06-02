@@ -27,7 +27,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         await PS.save()
         logger.info("PS Updated Successfully")
         return NextResponse.json({ message: "PS Updated Succesfully", qsid, ps }, { status: 200 })
-    } catch (error: any) {
+    } catch (error: unknown) {
         const message = error instanceof Error ? error.message : "Internal server Error"
         logger.error("Error in update route controller Ps",{
             message
