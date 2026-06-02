@@ -42,7 +42,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { psid: str
         let ps:IPS | null = await PS.findByIdAndDelete(qsid)
         logger.info("Qs Deleted Successfully")
         return NextResponse.json({ message: "QS Deleted  Succesfully", qsid, ps }, { status: 200 })
-    } catch (error: any) {
+    } catch (error: unknown) {
         const message = error instanceof Error ? error.message : "Internal server Error"
         logger.info("Error In Deleting the qsId server side",{
             message
