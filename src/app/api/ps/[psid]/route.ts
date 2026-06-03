@@ -35,7 +35,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         await PS.save()
       logger.info("Ps already Exists with this ID")
         return NextResponse.json({ message: "PS Updated Succesfully", PSID, ps }, { status: 200 })
-    } catch (error: any) {
+    } catch (error: unknown) {
         const message = error instanceof Error ? error.message : 'Unknown error';
         logger.error(
             "Error in updating the PS",{message}
