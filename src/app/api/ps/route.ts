@@ -12,7 +12,7 @@ export async function POST(req: NextRequest, { params }: { params: { OLTID: stri
         await firmware.save()
         logger.info("Firmware Created Succesfully")
         return NextResponse.json({ message: "Firmware Created Succesfully", OLTID, firmware }, { status: 200 })
-    } catch (error: any) {.
+    } catch (error: unknown) {.
         const message = error instanceof Error ? error.message : "Error in generating Firmware"
         logger.error("Error in generating Firmware",)
         return NextResponse.json({ message: error.message || "ERROR creating firmware" }, { status: 500 })
