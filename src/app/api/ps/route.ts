@@ -44,7 +44,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { OLTID: st
         }
         logger.info("Firmware Deleted Succesfully")
         return NextResponse.json({ message: "Your Old Firmware is Deleted ", OLTID }, { status: 200 })
-    } catch (error: any) {
+    } catch (error: unknown) {
         const message = error instanceof Error ? error.message: "Error in creating firmware"
         logger.error("Error in Deleting  Firmware")
         return NextResponse.json({ message: error.message || "ERROR creating firmware" }, { status: 500 })
