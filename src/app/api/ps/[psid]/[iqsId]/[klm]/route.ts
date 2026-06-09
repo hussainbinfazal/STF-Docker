@@ -29,7 +29,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         const 
         logger.info("KLM crated Successfully",{KLMID:klm})
         return NextResponse.json({ message: "KLM Updated Succesfully", klm, ps }, { status: 200 })
-    } catch (error: any) {
+    } catch (error: unknown) {
         const message = error instanceof Error ? error.message : "Internal Server Error"
         logger.info("Error in post ps route",{message})
         return NextResponse.json({ message: error.message || "ERROR Updating KLM" }, { status: 500 })
