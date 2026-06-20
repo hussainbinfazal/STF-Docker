@@ -28,7 +28,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { stp: stri
         const stpInDb: IFirmware | null  = await Firmware.findByIdAndDelete(stp)
         logger.info("STP Deleted Successfully",{stpId: stp._id})
         return NextResponse.json({ message: "Stp Deleted Succesfully", stp }, { status: 501 })
-    } catch (error: any) {
+    } catch (error: unknown) {
         logger.error("Internal server error ")
         return NextResponse.json({ message: error.message || "ERROR processing request" }, { status: 500 })
     }
