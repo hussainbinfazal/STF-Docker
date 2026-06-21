@@ -17,7 +17,7 @@ export async function PUT(req: NextRequest, { params }: { params: { stp: string 
         const stpInDb :IFirmware | null  = await Firmware.findByIdAndUpdate(stp)
         logger.info("STP Updated Successfully",{stpId: stp._id})
         return NextResponse.json({ message: "Not implemented", stp }, { status: 501 })
-    } catch (error: any) {
+    } catch (error: unknown) {
         logger.error("This is the error in the console , please try again",{stpId: stp._id})
         return NextResponse.json({ message: error.message || "ERROR processing request" }, { status: 500 })
     }
