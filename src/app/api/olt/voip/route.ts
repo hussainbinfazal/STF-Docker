@@ -22,7 +22,7 @@ export async function PUT(request: NextRequest) : Promise<NextResponse> {
         }
         logger.info("Voip number updated successfully")
         return NextResponse.json({data, message:"Voip number updated successfully"},{status:200});
-    } catch (error:any) {
+    } catch (error:unknown) {
         logger.info("Error in updating the voip number")
         return NextResponse.json({ message: 'Error fetching data' }, { status: 500 });
     }
