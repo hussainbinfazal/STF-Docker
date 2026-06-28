@@ -64,7 +64,7 @@ try{
     }
     logger.info("Firmware Deleted Successfully")
     return NextResponse.json({OLTID}, {status: 200})
-}catch(error:any){
+}catch(error:unknown){
     const message = error instanceOf Error ? error.message : 'Unknown error';
     logger.error("Error in updating firmware",{error:message})
     return NextResponse.json({ message: `Error in updating firmware` }, { status: 500 });
