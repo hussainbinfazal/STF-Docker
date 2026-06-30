@@ -47,7 +47,7 @@ const { OLTID } = params
     }
     logger.info("Firmware Found with this Id")
     return NextResponse.json({OLTID, firmwareFile}, {status: 200})
-    }catch(error:any){
+    }catch(error:unknown){
         const message = error instanceof Error ? error.message : 'Unknown error';
         logger.error("Error in updating firmware",{error:message})
         return NextResponse.json({ message: `Error in updating firmware` }, { status: 500 });
