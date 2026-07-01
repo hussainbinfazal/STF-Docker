@@ -21,7 +21,7 @@ export async function POST(req: NextRequest, context: { params: { OLTID: string 
     }
     logger.info("Firmware Found with this Id")
     return NextResponse.json({OLTID, firmwareFile}, {status: 200})
-    } catch (error: any) {
+    } catch (error: unknown) {
         logger.warn("Error in updating error")
         return NextResponse.json({ message: "Internal Server Error" }, { status: 500 })
     }
