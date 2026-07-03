@@ -45,7 +45,7 @@ export async function DELETE(req: NextRequest) {
             return NextResponse.json({ message: "User not found" }, { status: 404 });
         }
         return NextResponse.json({ message: "User Forgot successfull" }, { status: 200 });
-    } catch (error: any) {
+    } catch (error:unknown) {
         return NextResponse.json({ message: error.message }, { status: 500 });
 
     }
