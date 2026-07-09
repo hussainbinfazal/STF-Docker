@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
         user.password = password;
         await user.save();
         return NextResponse.json({ message: "Password changed successfully" }, { status: 200 });
-    } catch (error: any) {
+    } catch (error: unknowng) {
         return NextResponse.json({ message: error.message }, { status: 500 });
 
     }
