@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
         user.password = password;
         await user.save();
         return NextResponse.json({ message: "Password changed successfully" }, { status: 200 });
-    } catch (error: unknowng) {
+    } catch (error: unknown) {
         return NextResponse.json({ message: error.message }, { status: 500 });
 
     }
@@ -46,6 +46,7 @@ export async function DELETE(req: NextRequest) {
         }
         return NextResponse.json({ message: "User Forgot successfull" }, { status: 200 });
     } catch (error: unknown) {
+        const mesage = error instanceof Error ? error.Message : "Something went wrong"
         return NextResponse.json({ message: error.message }, { status: 500 });
 
     }
