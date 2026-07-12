@@ -31,6 +31,7 @@ export async function PUT(req: NextRequest) {
         await user.save();
         return NextResponse.json({ message: "Password changed successfully" }, { status: 200 });
     } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : "Something went wrong"
         return NextResponse.json({ message: error.message }, { status: 500 });
 
     }
