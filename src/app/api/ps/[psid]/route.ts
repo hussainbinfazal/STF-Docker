@@ -38,7 +38,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
     } catch (error: unknown) {
         const message = error instanceof Error ? error.message : 'Unknown error';
         logger.error(
-            "Error in updating the PS",{message}
+            "Error in updating the PS",{message:message}
         )
 
         
