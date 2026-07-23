@@ -11,7 +11,7 @@ export async function POST(req: NextRequest, { params }: { params: { psid: strin
         await PS.save()
         return NextResponse.json({ message: "PS Created Succesfully", qsid, ps }, { status: 200 })
     } catch (error: unknown) {
-
+        const message = error instanceof Error ? error.message : "Something went wrong"
         return NextResponse.json({ message: error.message || "ERROR creating QS" }, { status: 500 })
     }
 }
