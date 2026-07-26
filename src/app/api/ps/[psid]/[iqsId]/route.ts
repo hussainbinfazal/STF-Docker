@@ -25,7 +25,7 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         }
         ps = new PS({ id: qsid })
         await PS.save()
-        logger.info("PS Updated Successfully")
+        logger.info("PS Updated Successfully",{qsid})
         return NextResponse.json({ message: "PS Updated Succesfully", qsid, ps }, { status: 200 })
     } catch (error: unknown) {
         const message = error instanceof Error ? error.message : "Internal server Error"
