@@ -4,7 +4,7 @@ export async function POST(req: NextRequest, { params }: { params: { psid: strin
     connectDB()
     try {
         const { psid } = params
-        let ps :IPS |null = await PS.findById(OLTID)
+        let ps: IPS | null = await PS.findById(OLTID)
         if (ps) {
             return NextResponse.json({ message: "PS already exists with this PSID" }, { status: 404 })
         }
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest, { params }: { params: { psid: strin
     } catch (error: unknown) {
         const message = error instanceof Error ? error.message : 'Unknown error';
         logger.error(
-            "Error in creating the PS",{message}
+            "Error in creating the PS", { message }
         )
         return NextResponse.json({ message: error.message || "ERROR creating PS" }, { status: 500 })
     }
@@ -28,21 +28,21 @@ export async function PUT(req: NextRequest, { params }: { params: { psid: string
         if (!body) {
             return NextResponse.json({ message: "No data provided" }, { status: 400 })
         }
-        let ps : IPS | null = await PS.findByIdAndUpdate(OLTID, body, { new: true })
+        let ps: IPS | null = await PS.findByIdAndUpdate(OLTID, body, { new: true })
         if (ps) {
             logger.info("Ps already exists with this PSID ")
             return NextResponse.json({ message: "PS already exists with this PSID" }, { status: 404 })
         }
         await PS.save()
-      logger.info("Ps already Exists with this ID",{OLTID})
+        logger.info("Ps already Exists with this ID", { OLTID })
         return NextResponse.json({ message: "PS Updated Succesfully", PSID, ps }, { status: 200 })
     } catch (error: unknown) {
         const message = error instanceof Error ? error.message : 'Unknown error';
         logger.error(
-            "Error in updating the PS",{message:message}
+            "Error in updating the PS", { message: message }
         )
 
-        
+
         return NextResponse.json({ message: `Error in updating PS` }, { status: 500 });
     }
 }
