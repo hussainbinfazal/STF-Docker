@@ -14,7 +14,7 @@ COPY . .
 # RUN yarn build # Uncomment if you have a build step [TypeScript]
 
 # Stage 2: Production
-FROM node:20.11.0-alpine
+FROM base AS production
 WORKDIR /usr/src/app
 
 # Copy only the build artifacts and runtime dependencies
