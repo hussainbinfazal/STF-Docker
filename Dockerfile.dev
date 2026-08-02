@@ -16,7 +16,7 @@ COPY . .
 # Stage 2: Production
 FROM base AS production
 RUN npm install --silent
-
+COPY . .
 
 # Copy only the build artifacts and runtime dependencies
 COPY --from=build /usr/src/app/ ./
