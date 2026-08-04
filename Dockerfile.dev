@@ -18,11 +18,13 @@ FROM base AS production
 RUN npm install --silent
 COPY . .
 
+
 # Copy only the build artifacts and runtime dependencies
 COPY --from=build /usr/src/app/ ./
 # COPY --from=build /usr/src/app/dist ./dist # Use this line if you have built files [TypeScript]
 
 # Expose the port and define the command to run the application
 EXPOSE 3001
+RUN chown -R node /usr/src/app
 # CMD [ "node", "dist/app.js" ] # Use this line if you are working with TS
 CMD ["node", "src/app.js"]
