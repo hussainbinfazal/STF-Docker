@@ -19,7 +19,7 @@ RUN npm install --silent
 COPY . .
 RUN npm run build
 
-FROM nginix: alpine AS runtime
+FROM nginx:alpine AS runtime
 
 # Copy only the build artifacts and runtime dependencies
 COPY --from=build /usr/src/app/ ./
