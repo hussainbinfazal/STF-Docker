@@ -29,4 +29,4 @@ EXPOSE 80
 RUN chown -R node /usr/src/app
 
 # CMD [ "node", "dist/app.js" ] # Use this line if you are working with TS
-CMD ["node", "src/app.js"]
+CMD ["nginx","-g","daemon off;"]
