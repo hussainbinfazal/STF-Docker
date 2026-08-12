@@ -1,10 +1,10 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name:  my-name
+  name:  full-stack
   namespace:  stf
   labels:
-    name:  my-name
+    name:  full-stack
 spec:
   strategy:
     rollingUpdate:
