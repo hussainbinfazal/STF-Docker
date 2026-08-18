@@ -4,10 +4,10 @@ metadata:
   name: myapp
   namespace: full-stack
   labels:
-    app: myapp
+    app: full-stack
 spec:
   selector:
-    app: myapp
+    app: full-stack
   ports:
   - port: 27017
     targetPort: 27017
