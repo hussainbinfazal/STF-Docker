@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name:  full-stack-deployment
-  namespace:  stf
+  namespace:  full-stack
  
 spec:
   strategy:
