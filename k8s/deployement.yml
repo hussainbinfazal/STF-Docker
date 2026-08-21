@@ -1,17 +1,14 @@
-apiVersion: extensions/v1beta1
+apiVersion: v1
 kind: Deployment
 metadata:
-  name:  full-stack-deployment
-  namespace:  full-stack
- 
+  name: frontend-deployment
 spec:
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-    type: RollingUpdate
+  replicas: 1
   template:
     metadata:
       labels:
-        name:  full-stack
-   
+        editor: vscode
+    spec:
+      containers:
+      - name: name
+        image: Enter containers image
