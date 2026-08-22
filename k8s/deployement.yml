@@ -10,5 +10,5 @@ spec:
         editor: vscode
     spec:
       containers:
-      - name: name
-        image: Enter containers image
+      - name: full-stack
+        image: full-stack-next
