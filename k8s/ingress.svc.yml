@@ -6,5 +6,5 @@ spec:
   selector:
     app: full-stack
   ports:
-  - port: <Port>
+  - port: 3001
     targetPort: <Target Port>
