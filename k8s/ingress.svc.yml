@@ -7,4 +7,4 @@ spec:
     app: full-stack
   ports:
   - port: 3001
-    targetPort: <Target Port>
+    targetPort: 3001
