@@ -6,8 +6,7 @@ spec:
   replicas: 1
   template:
     metadata:
-      labels:
-        editor: vscode
+      labels: full-stack
     spec:
       containers:
       - name: full-stack
