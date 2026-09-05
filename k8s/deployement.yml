@@ -10,4 +10,4 @@ spec:
     spec:
       containers:
       - name: full-stack
-        image: full-stack-next
+        image: hussainbinfazal:fullstacknext
