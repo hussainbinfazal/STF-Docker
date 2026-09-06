@@ -11,14 +11,14 @@ RUN npm install --silent
 COPY . .
 
 # Build the application
-# RUN yarn build # Uncomment if you have a build step [TypeScript]
+# # RUN yarn build # Uncomment if you have a build step [TypeScript]
 
-# Stage 2: Production
-FROM base AS production
-RUN npm install --silent
-COPY . .
-RUN npm run build
-
+# # Stage 2: Production
+# FROM base AS production
+# RUN npm install --silent
+# COPY . .
+# RUN npm run build
+//added
 FROM nginx:alpine AS runtime
 COPY nginx/nginx.conf /etc/nginx/nginx/conf
 # Copy only the build artifacts and runtime dependencies
