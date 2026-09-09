@@ -10,7 +10,7 @@ COPY ["package.json", "package-lock.json*", "./"]
 # # =======================================================
 # # 2. Dev Stage: Local development with hot-reloading
 # # =======================================================
-# FROM base AS development
+FROM base AS development
 # ENV NODE_ENV=development
 # RUN npm install --silent
 # COPY . .
