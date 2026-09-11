@@ -55,3 +55,14 @@ FROM base AS development
 
 # # Start the standalone Next.js server directly using Node
 # CMD ["node", "server.js"]
+
+
+
+FROM base as production
+ENV NODE_ENV=production
+RUN npm install --production --silent && mv node_nodules ../
+COPY . .
+EXPOSE 5001
+RUN chown -R node /usr/src/app
+USER node
+RUN ["npm","start"]
