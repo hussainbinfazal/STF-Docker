@@ -64,5 +64,5 @@ FROM base AS development
 # COPY . .
 # EXPOSE 5001
 # RUN chown -R node /usr/src/app
-# USER node
-# RUN ["npm","start"]
+USER node
+RUN ["npm","start"]
