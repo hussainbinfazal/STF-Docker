@@ -57,6 +57,9 @@ FROM base AS development
 # CMD ["node", "server.js"]
 
 
+FROM base AS deps
+
+
 
 FROM base as production
 ENV NODE_ENV=production
