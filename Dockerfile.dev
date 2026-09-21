@@ -54,7 +54,7 @@ FROM base AS development
 # EXPOSE 3000
 
 # # Start the standalone Next.js server directly using Node
-# CMD ["node", "server.js"]
+CMD ["node", "server.js"]
 
 
 FROM base AS deps
