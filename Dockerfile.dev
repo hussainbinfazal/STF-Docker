@@ -46,7 +46,7 @@ FROM base AS development
 # # Copy only the compiled build and minimum runtime files from builder
 # COPY --from=builder /usr/src/app/public ./public
 # COPY --from=builder --chown=nextjs:nodejs /usr/src/app/.next/standalone ./
-# COPY --from=builder --chown=nextjs:nodejs /usr/src/app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /usr/src/app/.next/static ./.next/static
 
 # # Switch away from root user
 USER nextjs
