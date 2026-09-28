@@ -37,7 +37,7 @@ FROM base AS development
 # ENV NEXT_TELEMETRY_DISABLED=1
 # # Next.js binds to localhost by default; 0.0.0.0 exposes it outside the container
 # ENV PORT=3000
-# ENV HOSTNAME="0.0.0.0"
+ENV HOSTNAME="0.0.0.0"
 
 # # Create a non-root system user for security
 RUN addgroup --system --gid 1001 nodejs
