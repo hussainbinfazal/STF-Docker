@@ -30,8 +30,8 @@ FROM base AS development
 # # =======================================================
 # # 4. Prod Runtime Stage: Lightweight Node environment
 # # =======================================================
-# FROM node:22-alpine AS runtime
-# WORKDIR /usr/src/app
+FROM node:22-alpine AS runtime
+WORKDIR /usr/src/app
 
 # ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
