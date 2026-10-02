@@ -25,7 +25,7 @@ FROM base AS development
 # COPY . .
 # RUN npm ci --silent
 # # Generates production code inside the .next folder
-# RUN npm run build 
+RUN npm run build 
 
 # # =======================================================
 # # 4. Prod Runtime Stage: Lightweight Node environment
