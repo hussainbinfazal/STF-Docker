@@ -21,7 +21,7 @@ FROM base AS development
 # # =======================================================
 # # 3. Build Stage: Compile the Next.js application
 # # =======================================================
-# FROM base AS builder
+FROM base AS builder
 COPY . .
 RUN npm ci --silent
 # Generates production code inside the .next folder
