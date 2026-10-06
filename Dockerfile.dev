@@ -16,7 +16,7 @@ FROM base AS development
 # COPY . .
 # # Next.js dev server runs on 3000 by default
 # EXPOSE 3000 
-# CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev"]
 
 # # =======================================================
 # # 3. Build Stage: Compile the Next.js application
