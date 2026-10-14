@@ -66,6 +66,6 @@ FROM base AS deps
 # RUN npm install --production --silent && mv node_nodules ../
 COPY . .
 EXPOSE 5001
-RUN chown -R node /usr/src/app
+# RUN chown -R node /usr/src/app
 # USER node
 # RUN ["npm","start"]
