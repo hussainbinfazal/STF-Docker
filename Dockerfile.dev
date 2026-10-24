@@ -49,7 +49,7 @@ RUN adduser --system --uid 1001 nextjs
 # COPY --from=builder --chown=nextjs:nodejs /usr/src/app/.next/static ./.next/static
 
 # # Switch away from root user
-USER nextjs
+# USER nextjs
 
 EXPOSE 3000
 
